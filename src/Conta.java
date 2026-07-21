@@ -31,14 +31,13 @@ public class Conta {
     }
 
     // Método: sacar dinheiro
-    public void sacar(double valor) {
+    public void sacar(double valor) throws SaldoInsuficienteException{
         if (valor <= 0) {
             System.out.println("Valor de saque inválido");
             return;
         }
         if (valor > this.saldo) {
-            System.out.println("Saldo insuficiente");
-            return;
+            throw new SaldoInsuficienteException("Saldo insuficiente para sacar R$ " + valor);
         }
         this.saldo -= valor;
         System.out.println("Saque de R$ " + valor + " realizado com sucesso");

@@ -8,17 +8,17 @@ public class ContaCorrente extends Conta{
     }
 
     @Override
-    public void sacar(double valor) {
+    public void sacar(double valor) throws SaldoInsuficienteException {
     if (valor <= 0) {
         System.out.println("valor de saque inválido");
         return;
 
     }
     if (valor > getSaldo() + limiteChequeEspecial) {
-        System.out.println("Saldo insuficiente, mesmo considerando o limite");
-        return;
+        throw new SaldoInsuficienteException("Saldo insuficiente, mesmo considerando o limite");
     }
     setSaldo(getSaldo() - valor);
         System.out.println("Saque de R$ " + valor + " realizado com sucesso (Conta Corrente)");
+
     }
 }
