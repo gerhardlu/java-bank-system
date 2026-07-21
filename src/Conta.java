@@ -11,6 +11,13 @@ public class Conta {
         this.numero = numero;
         this.saldo = 0; // toda conta começar com saldo zero
     }
+    protected double getSaldo() {
+        return this.saldo;
+    }
+
+    protected void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
 
     // Método: depositar dinheiro
     public void depositar(double valor) {
@@ -34,7 +41,7 @@ public class Conta {
             return;
         }
         this.saldo -= valor;
-        System.out.println("Saque de R$ " + valor + "realizado com sucesso");
+        System.out.println("Saque de R$ " + valor + " realizado com sucesso");
     }
 
     // Método: exibir o saldo atual

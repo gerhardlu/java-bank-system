@@ -1,11 +1,13 @@
 public class Main {
     public static void main(String[] args) {
-        Conta contaDoGerhard = new Conta("Gerhard", 12345);
+        ContaCorrente cc = new ContaCorrente("Gerhard", 111, 500);
+        cc.depositar(200);
+        cc.sacar(600); // usa o cheque especial (200 + 500 de limite)
+        cc.verSaldo();
 
-        contaDoGerhard.depositar(500);
-        contaDoGerhard.sacar(150);
-        contaDoGerhard.sacar(1000); // deve falhar, saldo insuficiente
-
-        contaDoGerhard.verSaldo();
+        ContaPoupanca cp = new ContaPoupanca("Gerhard", 222, 0.01);
+        cp.depositar(1000);
+        cp.renderJuros();
+        cp.verSaldo();
     }
 }
