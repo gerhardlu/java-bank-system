@@ -10,6 +10,7 @@ public class ContaPoupanca extends Conta {
     public void renderJuros() {
         double juros = getSaldo() * taxaDeJuros;
         setSaldo(getSaldo() + juros);
+        registrarTransacao("Juros aplicados: R$ " + juros);
         System.out.println("Rendimento de R$ " + juros + " aplicado");
     }
 }

@@ -1,4 +1,4 @@
-public class ContaCorrente extends Conta{
+public class ContaCorrente extends Conta {
 
     private double limiteChequeEspecial;
 
@@ -9,16 +9,15 @@ public class ContaCorrente extends Conta{
 
     @Override
     public void sacar(double valor) throws SaldoInsuficienteException {
-    if (valor <= 0) {
-        System.out.println("valor de saque inválido");
-        return;
-
-    }
-    if (valor > getSaldo() + limiteChequeEspecial) {
-        throw new SaldoInsuficienteException("Saldo insuficiente, mesmo considerando o limite");
-    }
-    setSaldo(getSaldo() - valor);
-        System.out.println("Saque de R$ " + valor + " realizado com sucesso (Conta Corrente)");
-
+        if (valor <= 0) {
+            System.out.println("valor de saque inválido");
+            return;
+        }
+        if (valor > getSaldo() + limiteChequeEspecial) {
+            throw new SaldoInsuficienteException("Saldo insuficiente, mesmo considerando o limite");
+        }
+        setSaldo(getSaldo() - valor);
+        registrarTransacao("Saque: R$ " + valor + " (conta corrente)");
+        System.out.println("Saque de R$ " + valor + " realizado com sucesso (conta corrente)");
     }
 }
