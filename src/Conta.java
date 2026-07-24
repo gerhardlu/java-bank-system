@@ -17,6 +17,13 @@ public class Conta {
         this.saldo = 0;
     }
 
+    public String getTitular() {
+        return this.titular;
+    }
+
+    public int getNumero() {
+        return this.numero;
+    }
     protected double getSaldo() {
         return this.saldo;
     }
